@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.8.2/d3.js"></script>
+    <style>
+      svg .single-bar-group .bar-temp {
+        opacity: 0;
+        transition: 0.6s all ease;
+        text-anchor: middle;
+      }
+      svg .single-bar-group:hover .bar-temp {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+      <svg class="bar-chart"></svg>
+      <script src="barChart.js"></script>
+  </body>
+</html>
