@@ -1243,7 +1243,7 @@ function drawChart(data) {
   const columnWidth = (svgWidth / data.length) - barPadding
 
   const scaleX = d3.scaleBand()
-                    .domain([...data.map(city => city.name)])
+                    .domain(data.map(city => city.name))
                     .range([0, svgWidth])
 
   const axisX = d3.axisBottom(scaleX);
@@ -1323,15 +1323,10 @@ function drawChart(data) {
 
   bars
   .on('mouseover', function(x,y,z) { 
-    if (z[y].getAttribute('fill') !== 'lightgray') {
-      z[y].setAttribute('original-color', z[y].getAttribute('fill'))
-    }
     z[y].setAttribute('fill', 'lightgray')
   })
   .on('mouseout', function(x,y,z) {
-    if (z[y].getAttribute('original-color')) {
-      z[y].setAttribute('fill', z[y].getAttribute('original-color'))
-    }
+    z[y].setAttribute('fill', scaleColor(x.main.temp))
   })
 
   barsContainer
